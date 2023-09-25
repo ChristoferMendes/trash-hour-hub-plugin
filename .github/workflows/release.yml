@@ -17,7 +17,7 @@ jobs:
         with:
           bun-version: latest
       - name: Build card
-        run: yarn && yarn build
+        run: bun i && bunx --bun vite build
       - name: Check if tag is a prerelease
         id: check-tag
         run: |
