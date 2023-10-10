@@ -2,7 +2,7 @@ import { createRoot } from "react-dom/client";
 import { App } from "./App";
 import tailwindcss from "./index.css?inline";
 import react_awesome_button_css from "react-awesome-button/dist/styles.css?inline";
-import sonner_css from "sonner/dist/styles.css?inline";
+import sonner_css from "./utils/adoptedStyles/sonner.css?inline";
 
 export class TrashHourElement extends HTMLElement {
   connectedCallback() {
