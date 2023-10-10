@@ -11,12 +11,16 @@ export class TrashHourElement extends HTMLElement {
 
     shadowRoot.appendChild(reactRoot);
 
-    const css = new CSSStyleSheet({});
+    const tailwindStyleSheet = new CSSStyleSheet({});
 
-    css.replaceSync(tailwindcss);
-    css.replaceSync(react_awesome_button_css);
+    tailwindStyleSheet.replaceSync(tailwindcss);
 
-    shadowRoot.adoptedStyleSheets.push(css);
+    const reactAwesomeButtonStyleSheet = new CSSStyleSheet({});
+
+    reactAwesomeButtonStyleSheet.replaceSync(react_awesome_button_css);
+
+    shadowRoot.adoptedStyleSheets.push(reactAwesomeButtonStyleSheet);
+    shadowRoot.adoptedStyleSheets.push(tailwindStyleSheet);
 
     const root = createRoot(reactRoot);
 
