@@ -2,11 +2,12 @@ import { ThemeProvider } from "./components/theme-provider";
 import { Check, Trash2 } from "lucide-react";
 import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
-import { useRequesrNotificationPermission } from "./hooks/use-request-notification-permission";
+import { useRequestNotificationPermission } from "./hooks/use-request-notification-permission";
 import { Toaster, toast } from "sonner";
 
 export function App() {
-  useRequesrNotificationPermission();
+  useRequestNotificationPermission();
+  
   return (
     <ThemeProvider>
       <div className="bg-background w-full">

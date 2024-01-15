@@ -1,15 +1,11 @@
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 
-enum NotificationPermission {
-  "default",
-  "denied",
-  "granted",
-}
+type Permission =  globalThis.NotificationPermission
 
 const hasNotificationInBrowser = "Notification" in window;
-export function useRequesrNotificationPermission() {
-  const [permission, setPermission] = useState(NotificationPermission.default);
+export function useRequestNotificationPermission() {
+  const [permission, setPermission] = useState<Permission>('default');
 
   useEffect(() => {
     if (!hasNotificationInBrowser) {
@@ -18,22 +14,25 @@ export function useRequesrNotificationPermission() {
     }
 
     if (Notification.permission === "granted") {
-      setPermission(NotificationPermission.granted);
+      setPermission('granted');
       return;
     }
 
     if (Notification.permission === "denied") {
-      setPermission(NotificationPermission.denied);
+      setPermission('denied');
       return;
     }
 
     async function requestPermission() {
       const permission = await Notification.requestPermission();
 
-      console.log("permission", permission);
       setPermission(permission);
     }
 
     requestPermission();
   }, []);
+
+  return {
+    permission
+  }
 }

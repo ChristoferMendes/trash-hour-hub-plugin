@@ -1,6 +1,10 @@
 import { TrashHourElement } from "./custom-card";
+import { icons } from "lucide-react";
 
 customElements.define("trash-hour", TrashHourElement);
+
+
+export type IconName = keyof typeof icons;
 
 declare global {
   interface Window {
@@ -19,7 +23,7 @@ declare global {
 
 window.customPages.push({
   elementName: "trash-hour",
-  icon: "Trash",
-  path: "/trash-hour",
+  icon: <IconName>'Trash',
   iconLabel: "Trash Hour",
+  path: "/trash-hour",
 });
