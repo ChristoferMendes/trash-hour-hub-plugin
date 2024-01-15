@@ -12,10 +12,16 @@ declare global {
       name: string;
     }[];
     customPages: {
-      elementName: string;
-      icon: string;
-      iconLabel: string;
+      sidebar?: {
+        icon: string;
+        iconLabel: string;
+      };
       path: string;
+      elementName: string;
+      metaData?: {
+        version: string;
+        displayName?: string;
+      };
     }[];
     sideBardWidth: string;
   }
@@ -23,7 +29,13 @@ declare global {
 
 window.customPages.push({
   elementName: "trash-hour",
-  icon: <IconName>'Trash',
-  iconLabel: "Trash Hour",
   path: "/trash-hour",
+  sidebar: {
+    icon: "Trash",
+    iconLabel: "Trash Hour",
+  },
+  metaData: {
+    version: "1.0.0",
+    displayName: "Trash Hour",
+  }
 });
